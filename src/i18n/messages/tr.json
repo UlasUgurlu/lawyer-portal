@@ -1,0 +1,505 @@
+{
+  "common": {
+    "title": "Avukat Portalı",
+    "nav": {
+      "home": "Ana Sayfa",
+      "services": "Hizmetler",
+      "team": "Ekibimiz",
+      "blog": "Blog",
+      "contact": "İletişim",
+      "faq": "SSS",
+      "login": "Giriş Yap",
+      "register": "Kayıt Ol",
+      "dashboard": "Gösterge Paneli",
+      "myCases": "Dosyalarım",
+      "messages": "Mesajlar",
+      "payments": "Ödemeler",
+      "profile": "Profil",
+      "settings": "Ayarlar",
+      "logout": "Çıkış Yap"
+    }
+  },
+  "auth": {
+    "welcome": "Hoş Geldiniz",
+    "loginSubtitle": "Hesabınıza giriş yapın",
+    "email": "E-posta",
+    "emailPlaceholder": "E-posta adresinizi girin",
+    "password": "Parola",
+    "passwordPlaceholder": "Parolanızı girin",
+    "signIn": "Giriş Yap",
+    "signingIn": "Giriş yapılıyor...",
+    "forgotPasswordText": "Parolanızı mı unuttunuz?",
+    "resetPasswordText": "Parolayı Sıfırla",
+    "invalidCredentials": "Geçersiz e-posta veya parola",
+    "loginError": "Giriş yaparken bir hata oluştu",
+    "testAccounts": "Test Hesapları",
+    "firmAdmin": "Firma Yöneticisi",
+    "lawyer": "Avukat",
+    "client": "Müvekkil",
+    "login": {
+      "title": "Giriş Yap",
+      "email": "E-posta",
+      "password": "Parola",
+      "rememberMe": "Beni hatırla",
+      "forgotPassword": "Parolanızı mı unuttunuz?",
+      "submit": "Giriş Yap",
+      "register": "Hesabınız yok mu? Kayıt olun",
+      "loginError": "Giriş yaparken bir hata oluştu."
+    },
+    "register": {
+      "title": "Kayıt Ol",
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "password": "Parola",
+      "confirmPassword": "Parolayı Doğrula",
+      "privacyPolicy": "Kişisel verilerin korunması politikasını okudum ve kabul ediyorum.",
+      "submit": "Kayıt Ol",
+      "login": "Zaten bir hesabınız var mı? Giriş yapın",
+      "registerError": "Kayıt olurken bir hata oluştu."
+    },
+    "2fa": {
+      "title": "İki Faktörlü Doğrulama",
+      "description": "Lütfen uygulamanızdaki kodu girin",
+      "code": "Doğrulama Kodu",
+      "submit": "Doğrula"
+    },
+    "forgotPassword": {
+      "title": "Parola Sıfırlama",
+      "email": "E-posta",
+      "submit": "Sıfırlama Bağlantısı Gönder",
+      "sentMessage": "Parola sıfırlama bağlantısı e-posta adresinize gönderildi.",
+      "backToLogin": "Giriş sayfasına dön"
+    },
+    "resetPassword": {
+      "title": "Yeni Parola Belirle",
+      "password": "Yeni Parola",
+      "confirmPassword": "Parolayı Doğrula",
+      "submit": "Parolayı Değiştir",
+      "success": "Parolanız başarıyla değiştirildi."
+    },
+    "verification": {
+      "title": "E-posta Doğrulama",
+      "success": "E-posta adresiniz doğrulandı.",
+      "error": "Doğrulama başarısız oldu.",
+      "expired": "Doğrulama bağlantısı geçersiz veya süresi dolmuş."
+    }
+  },
+  "dashboard": {
+    "title": "Avukat Portalı",
+    "welcome": "Hoş geldiniz",
+    "signOut": "Çıkış Yap",
+    "superAdmin": "Süper Admin",
+    "firmAdmin": "Firma Yöneticisi",
+    "lawyer": "Avukat",
+    "paralegal": "Paralegal",
+    "client": "Müvekkil",
+    "clientWelcomeMessage": "Dosyalarınızı takip edin ve avukatınızla iletişime geçin.",
+    "lawyerWelcomeMessage": "Müvekkillerinizi yönetin ve dosyalarınızı takip edin.",
+    "defaultWelcomeMessage": "Hoş geldiniz! Sistemi kullanmaya başlayabilirsiniz.",
+    "myCases": "Dosyalarım",
+    "documents": "Belgeler",
+    "messages": "Mesajlar",
+    "appointments": "Randevular",
+    "activeCases": "Aktif Dosyalar",
+    "totalDocuments": "Toplam Belge",
+    "unreadMessages": "Okunmamış Mesaj",
+    "upcomingAppointments": "Yaklaşan Randevular",
+    "totalCases": "Toplam Dosyalar",
+    "clients": "Müvekkiller",
+    "revenue": "Gelir",
+    "hearings": "Duruşmalar",
+    "totalClients": "Toplam Müvekkil",
+    "thisMonth": "Bu Ay",
+    "thisWeek": "Bu Hafta",
+    "quickActions": "Hızlı İşlemler",
+    "quickActionsDescription": "Sık kullanılan işlemlere hızlı erişim",
+    "viewMyCases": "Dosyalarımı Görüntüle",
+    "sendMessage": "Mesaj Gönder",
+    "scheduleAppointment": "Randevu Al",
+    "createNewCase": "Yeni Dosya Oluştur",
+    "addClient": "Müvekkil Ekle",
+    "scheduleHearing": "Duruşma Planla",
+    "firmSettings": "Firma Ayarları",
+    "recentActivity": "Son Aktiviteler",
+    "recentActivityDescription": "Son işlemlerinizi takip edin",
+    "sampleActivity1": "Yeni dosya oluşturuldu: İş Davası",
+    "sampleActivity2": "Müvekkil mesajı gönderildi",
+    "sampleActivity3": "Belge yüklendi: Dava Dilekçesi",
+    "hoursAgo": "saat önce",
+    "dayAgo": "gün önce",
+    "daysAgo": "gün önce",
+    "greeting": "Merhaba, {name}",
+    "summary": {
+      "title": "Özet",
+      "activeCases": "Aktif Dosya",
+      "pendingHearings": "Yaklaşan Duruşma",
+      "unreadMessages": "Okunmamış Mesaj",
+      "pendingInvoices": "Bekleyen Fatura"
+    },
+    "recentDocuments": {
+      "title": "Son Belgeler",
+      "empty": "Henüz belge bulunmuyor",
+      "viewAll": "Tümünü Görüntüle"
+    },
+    "upcomingHearings": {
+      "title": "Yaklaşan Duruşmalar",
+      "empty": "Yaklaşan duruşma bulunmuyor",
+      "viewAll": "Tümünü Görüntüle"
+    },
+    "recentMessages": {
+      "title": "Son Mesajlar",
+      "empty": "Henüz mesaj bulunmuyor",
+      "viewAll": "Tümünü Görüntüle"
+    }
+  },
+  "client": {
+    "title": "Müvekkil Portalı",
+    "welcome": "Hoş geldiniz",
+    "signOut": "Çıkış Yap",
+    "client": "Müvekkil",
+    "portalDescription": "Dosyalarınızı takip edin, belgelerinizi görüntüleyin ve avukatınızla iletişime geçin.",
+    "activeCases": "Aktif Dosyalar",
+    "documents": "Belgeler",
+    "messages": "Mesajlar",
+    "hearings": "Duruşmalar",
+    "totalActive": "Toplam Aktif",
+    "available": "Mevcut",
+    "unread": "Okunmamış",
+    "upcoming": "Yaklaşan",
+    "myCases": "Dosyalarım",
+    "calendar": "Takvim",
+    "active": "Aktif",
+    "pending": "Beklemede",
+    "closed": "Kapalı",
+    "caseNumber": "Dosya Numarası",
+    "lawyer": "Avukat",
+    "nextHearing": "Sonraki Duruşma",
+    "lastUpdate": "Son Güncelleme",
+    "notScheduled": "Planlanmamış",
+    "viewDetails": "Detayları Görüntüle",
+    "contactLawyer": "Avukat ile İletişim",
+    "view": "Görüntüle",
+    "download": "İndir",
+    "from": "Gönderen",
+    "new": "Yeni",
+    "read": "Oku",
+    "upcomingAppointments": "Yaklaşan Randevular",
+    "calendarDescription": "Randevularınızı ve duruşmalarınızı takip edin",
+    "lawyerMeeting": "Avukat Görüşmesi",
+    "courtHearing": "Mahkeme Duruşması",
+    "details": "Detaylar"
+  },
+  "cases": {
+    "title": "Dosyalarım",
+    "search": "Dosya Ara",
+    "filter": {
+      "all": "Tümü",
+      "active": "Aktif",
+      "pending": "Beklemede",
+      "closed": "Kapalı",
+      "archived": "Arşivlenmiş"
+    },
+    "type": {
+      "all": "Tüm Türler",
+      "DAVA": "Dava",
+      "ICRA": "İcra",
+      "DANISMANLIK": "Danışmanlık",
+      "DIGER": "Diğer"
+    },
+    "table": {
+      "title": "Dosya Adı",
+      "type": "Tür",
+      "status": "Durum",
+      "court": "Mahkeme",
+      "registryNo": "Esas No",
+      "openedAt": "Açılış Tarihi",
+      "actions": "İşlemler"
+    },
+    "detail": {
+      "title": "Dosya Detayı",
+      "info": "Dosya Bilgisi",
+      "documents": "Belgeler",
+      "messages": "Mesajlar",
+      "tasks": "İşler",
+      "calendar": "Takvim",
+      "payments": "Ödemeler",
+      "assignedLawyers": "Atanmış Avukatlar",
+      "parties": "Taraflar",
+      "timeline": "Zaman Çizelgesi"
+    },
+    "document": {
+      "title": "Belgeler",
+      "search": "Belge Ara",
+      "upload": "Belge Yükle",
+      "preview": "Önizleme",
+      "download": "İndir",
+      "delete": "Sil",
+      "version": "Sürüm",
+      "lastUpdated": "Son Güncelleme",
+      "visibility": {
+        "INTERNAL": "Yalnızca Avukatlar",
+        "CLIENT": "Müvekkil Görüntüleyebilir"
+      },
+      "tags": "Etiketler",
+      "addTag": "Etiket Ekle"
+    }
+  },
+  "messages": {
+    "title": "Mesajlar",
+    "newMessage": "Yeni Mesaj",
+    "search": "Mesaj Ara",
+    "noMessages": "Henüz mesaj bulunmuyor",
+    "thread": {
+      "reply": "Yanıtla",
+      "attachment": "Dosya Ekle",
+      "send": "Gönder"
+    }
+  },
+  "payments": {
+    "title": "Ödemeler",
+    "invoices": "Faturalar",
+    "transactions": "İşlemler",
+    "table": {
+      "invoiceNumber": "Fatura No",
+      "amount": "Tutar",
+      "status": "Durum",
+      "issuedAt": "Oluşturma Tarihi",
+      "dueAt": "Son Ödeme Tarihi",
+      "actions": "İşlemler"
+    },
+    "status": {
+      "DRAFT": "Taslak",
+      "SENT": "Gönderildi",
+      "PAID": "Ödendi",
+      "OVERDUE": "Gecikmiş",
+      "CANCELLED": "İptal Edildi"
+    },
+    "invoice": {
+      "download": "PDF İndir",
+      "pay": "Ödeme Yap"
+    }
+  },
+  "profile": {
+    "title": "Profil",
+    "personalInfo": {
+      "title": "Kişisel Bilgiler",
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "save": "Değişiklikleri Kaydet"
+    },
+    "security": {
+      "title": "Güvenlik",
+      "changePassword": "Parola Değiştir",
+      "2fa": "İki Faktörlü Doğrulama",
+      "2faEnabled": "Aktif",
+      "2faDisabled": "Devre Dışı",
+      "devices": "Cihaz Yönetimi",
+      "currentDevice": "Mevcut Cihaz",
+      "otherDevices": "Diğer Cihazlar",
+      "logoutDevice": "Cihazdan Çıkış Yap",
+      "logoutAll": "Tüm Cihazlardan Çıkış Yap"
+    },
+    "preferences": {
+      "title": "Tercihler",
+      "language": "Dil",
+      "timezone": "Zaman Dilimi",
+      "notifications": {
+        "title": "Bildirim Tercihleri",
+        "email": "E-posta Bildirimleri",
+        "sms": "SMS Bildirimleri",
+        "app": "Uygulama Bildirimleri",
+        "options": {
+          "all": "Tüm Bildirimler",
+          "important": "Yalnızca Önemli Bildirimler",
+          "none": "Hiçbiri"
+        }
+      }
+    },
+    "consent": {
+      "title": "KVKK İzinleri",
+      "marketing": "Pazarlama iletişimleri almayı kabul ediyorum",
+      "dataProcessing": "Verilerimin işlenmesini kabul ediyorum",
+      "thirdParty": "Üçüncü taraflarla veri paylaşımını kabul ediyorum",
+      "update": "İzinleri Güncelle"
+    },
+    "deleteAccount": {
+      "title": "Hesabı Sil",
+      "warning": "Bu işlem geri alınamaz ve tüm verileriniz sistemden silinecektir.",
+      "button": "Hesabımı Sil"
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Yönetim Paneli",
+      "stats": {
+        "users": "Kullanıcılar",
+        "cases": "Dosyalar",
+        "clients": "Müvekkiller",
+        "invoices": "Faturalar"
+      }
+    },
+    "users": {
+      "title": "Kullanıcılar",
+      "add": "Kullanıcı Ekle",
+      "invite": "Kullanıcı Davet Et",
+      "table": {
+        "name": "Ad Soyad",
+        "email": "E-posta",
+        "role": "Rol",
+        "status": "Durum",
+        "actions": "İşlemler"
+      },
+      "role": {
+        "SUPER_ADMIN": "Süper Admin",
+        "FIRM_ADMIN": "Firma Yöneticisi",
+        "LAWYER": "Avukat",
+        "PARALEGAL": "Paralegal",
+        "CLIENT": "Müvekkil"
+      }
+    },
+    "clients": {
+      "title": "Müvekkiller",
+      "add": "Müvekkil Ekle",
+      "invite": "Müvekkil Davet Et",
+      "table": {
+        "name": "Ad Soyad",
+        "email": "E-posta",
+        "phone": "Telefon",
+        "activeCases": "Aktif Dosyalar",
+        "actions": "İşlemler"
+      }
+    },
+    "cases": {
+      "title": "Dosyalar",
+      "add": "Yeni Dosya",
+      "table": {
+        "title": "Başlık",
+        "client": "Müvekkil",
+        "type": "Tür",
+        "status": "Durum",
+        "assignedTo": "Atanan Avukat",
+        "openedAt": "Açılış Tarihi",
+        "actions": "İşlemler"
+      }
+    },
+    "settings": {
+      "title": "Ayarlar",
+      "firm": {
+        "title": "Firma Bilgileri",
+        "name": "Firma Adı",
+        "vatNo": "Vergi No",
+        "address": "Adres",
+        "logo": "Logo",
+        "save": "Değişiklikleri Kaydet"
+      },
+      "templates": {
+        "title": "Şablonlar",
+        "email": "E-posta Şablonları",
+        "sms": "SMS Şablonları",
+        "document": "Belge Şablonları",
+        "save": "Şablonu Kaydet"
+      },
+      "integrations": {
+        "title": "Entegrasyonlar",
+        "smtp": "E-posta (SMTP)",
+        "sms": "SMS Sağlayıcı",
+        "storage": "Dosya Depolama",
+        "payment": "Ödeme Sağlayıcı",
+        "save": "Ayarları Kaydet"
+      }
+    },
+    "reports": {
+      "title": "Raporlar",
+      "casesByStatus": "Durum Bazında Dosya Dağılımı",
+      "casesByType": "Tür Bazında Dosya Dağılımı",
+      "invoiceStats": "Fatura İstatistikleri",
+      "userActivity": "Kullanıcı Aktiviteleri",
+      "export": {
+        "title": "Dışa Aktar",
+        "csv": "CSV İndir",
+        "pdf": "PDF İndir"
+      }
+    },
+    "auditLog": {
+      "title": "Denetim Kayıtları",
+      "table": {
+        "action": "İşlem",
+        "user": "Kullanıcı",
+        "entity": "Varlık",
+        "timestamp": "Zaman",
+        "ip": "IP Adresi"
+      }
+    }
+  },
+  "components": {
+    "fileUpload": {
+      "dropzone": "Dosyaları buraya sürükleyin veya seçmek için tıklayın",
+      "maxSize": "Maksimum dosya boyutu: {size}",
+      "allowedTypes": "İzin verilen dosya türleri: {types}",
+      "scanning": "Dosya taranıyor...",
+      "uploadError": "Yükleme sırasında bir hata oluştu",
+      "success": "Dosya başarıyla yüklendi"
+    },
+    "pagination": {
+      "previous": "Önceki",
+      "next": "Sonraki",
+      "page": "Sayfa",
+      "of": "/"
+    },
+    "table": {
+      "emptyState": "Veri bulunamadı",
+      "loading": "Yükleniyor...",
+      "search": "Ara",
+      "rowsPerPage": "Sayfa başına satır"
+    },
+    "calendar": {
+      "today": "Bugün",
+      "month": "Ay",
+      "week": "Hafta",
+      "day": "Gün",
+      "addEvent": "Etkinlik Ekle"
+    },
+    "notification": {
+      "markAllRead": "Tümünü Okundu İşaretle",
+      "noNotifications": "Bildirim bulunmuyor",
+      "viewAll": "Tümünü Görüntüle"
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "Sayfa Bulunamadı",
+      "message": "Aradığınız sayfa mevcut değil veya kaldırılmış olabilir.",
+      "backHome": "Ana Sayfaya Dön"
+    },
+    "unauthorized": {
+      "title": "Yetkisiz Erişim",
+      "message": "Bu sayfayı görüntülemek için yetkiniz bulunmamaktadır.",
+      "login": "Giriş Yap"
+    },
+    "serverError": {
+      "title": "Sunucu Hatası",
+      "message": "Beklenmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+      "retry": "Tekrar Dene"
+    },
+    "validation": {
+      "required": "Bu alan zorunludur",
+      "email": "Geçerli bir e-posta adresi giriniz",
+      "minLength": "En az {min} karakter girmelisiniz",
+      "maxLength": "En fazla {max} karakter girebilirsiniz",
+      "passwordMatch": "Parolalar eşleşmiyor",
+      "invalidDate": "Geçerli bir tarih giriniz"
+    }
+  },
+  "dates": {
+    "today": "Bugün",
+    "yesterday": "Dün",
+    "tomorrow": "Yarın",
+    "daysAgo": "{days} gün önce",
+    "inDays": "{days} gün içinde",
+    "monthsAgo": "{months} ay önce",
+    "inMonths": "{months} ay içinde",
+    "yearsAgo": "{years} yıl önce",
+    "inYears": "{years} yıl içinde"
+  }
+}

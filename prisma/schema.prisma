@@ -1,0 +1,531 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Enums for role-based access control and various types
+enum UserRole {
+  SUPER_ADMIN
+  FIRM_ADMIN
+  LAWYER
+  PARALEGAL
+  CLIENT
+}
+
+enum CaseType {
+  DAVA // Lawsuit
+  ICRA // Execution
+  DANISMANLIK // Consultation
+  DIGER // Other
+}
+
+enum CaseStatus {
+  ACTIVE
+  PENDING
+  CLOSED
+  ARCHIVED
+}
+
+enum CaseParticipantRole {
+  MUVEKKIL // Client
+  KARSI_TARAF // Opposing party
+  DIGER // Other
+}
+
+enum CaseAssignmentRole {
+  SORUMLU_AVUKAT // Responsible lawyer
+  EKIP // Team
+}
+
+enum Visibility {
+  INTERNAL // Only visible to firm members
+  CLIENT // Visible to clients as well
+}
+
+enum NotificationChannel {
+  EMAIL
+  SMS
+  INAPP
+}
+
+enum EventType {
+  DURUSMA // Hearing
+  TOPLANTI // Meeting
+  HATIRLATICI // Reminder
+}
+
+enum InvoiceStatus {
+  DRAFT
+  SENT
+  PAID
+  OVERDUE
+  CANCELLED
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  REVIEW
+  DONE
+  CANCELLED
+}
+
+enum TaskPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum PaymentMethod {
+  BANK_TRANSFER
+  CREDIT_CARD
+  CASH
+  OTHER
+}
+
+// Main models based on requirements
+model Firm {
+  id        String   @id @default(cuid())
+  name      String
+  vatNo     String?
+  address   String
+  logo      String?
+  settings  Json?    // JSON for various firm settings like colors, templates, etc.
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  // Relations
+  users       Membership[]
+  clients     Client[]
+  cases       Case[]
+  invoices    Invoice[]
+
+  @@map("firms")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  passwordHash  String
+  name          String
+  phone         String?
+  locale        String    @default("tr")
+  tz            String    @default("Europe/Istanbul")
+  twoFAEnabled  Boolean   @default(false)
+  twoFASecret   String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  deletedAt     DateTime?
+  lastLoginAt   DateTime?
+  emailVerified DateTime?
+
+  // Relations
+  memberships    Membership[]
+  clientProfile  Client?
+  authoredNotes  Note[]
+  assignedTasks  Task[]        @relation("TaskAssignee")
+  createdTasks   Task[]        @relation("TaskCreator")
+  messages       Message[]
+  notifications  Notification[]
+  auditLogs      AuditLog[]    @relation("Actor")
+
+  @@map("users")
+}
+
+model Membership {
+  id        String    @id @default(cuid())
+  role      UserRole
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  // Relations
+  user    User    @relation(fields: [userId], references: [id])
+  userId  String
+  firm    Firm    @relation(fields: [firmId], references: [id])
+  firmId  String
+
+  caseAssignments CaseAssignment[]
+
+  @@unique([userId, firmId])
+  @@index([firmId])
+  @@index([userId])
+  @@map("memberships")
+}
+
+model Client {
+  id            String    @id @default(cuid())
+  name          String
+  email         String
+  phone         String?
+  nationalId    String?
+  contactInfo   Json?     // Additional contact information
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  deletedAt     DateTime?
+
+  // Relations
+  firm          Firm      @relation(fields: [firmId], references: [id])
+  firmId        String
+  user          User?     @relation(fields: [userId], references: [id])
+  userId        String?   @unique
+  cases         CaseParticipant[]
+  invoices      Invoice[]
+
+  @@index([firmId])
+  @@index([email])
+  @@map("clients")
+}
+
+model Case {
+  id          String     @id @default(cuid())
+  title       String
+  type        CaseType
+  status      CaseStatus @default(ACTIVE)
+  court       String?
+  registryNo  String?
+  description String?    @db.Text
+  openedAt    DateTime   @default(now())
+  closedAt    DateTime?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  deletedAt   DateTime?
+
+  // Relations
+  firm             Firm              @relation(fields: [firmId], references: [id])
+  firmId           String
+  participants     CaseParticipant[]
+  assignments      CaseAssignment[]
+  documents        Document[]
+  notes            Note[]
+  messageThreads   MessageThread[]
+  tasks            Task[]
+  events           Event[]
+  invoices         Invoice[]
+
+  @@index([firmId])
+  @@index([status])
+  @@index([type])
+  @@map("cases")
+}
+
+model CaseParticipant {
+  id        String              @id @default(cuid())
+  role      CaseParticipantRole
+  createdAt DateTime            @default(now())
+  updatedAt DateTime            @updatedAt
+  deletedAt DateTime?
+
+  // Relations
+  case      Case    @relation(fields: [caseId], references: [id])
+  caseId    String
+  client    Client  @relation(fields: [clientId], references: [id])
+  clientId  String
+
+  @@unique([caseId, clientId])
+  @@index([caseId])
+  @@index([clientId])
+  @@map("case_participants")
+}
+
+model CaseAssignment {
+  id        String             @id @default(cuid())
+  role      CaseAssignmentRole
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+  deletedAt DateTime?
+
+  // Relations
+  case       Case       @relation(fields: [caseId], references: [id])
+  caseId     String
+  member     Membership @relation(fields: [membershipId], references: [id])
+  membershipId String
+
+  @@unique([caseId, membershipId])
+  @@index([caseId])
+  @@index([membershipId])
+  @@map("case_assignments")
+}
+
+model Document {
+  id                String     @id @default(cuid())
+  title             String
+  tags              String[]
+  visibility        Visibility
+  currentVersionId  String?
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+  deletedAt         DateTime?
+
+  // Relations
+  case              Case             @relation(fields: [caseId], references: [id])
+  caseId            String
+  createdBy         String           // User ID who created the document
+  versions          DocumentVersion[]
+  currentVersion    DocumentVersion? @relation("CurrentVersion", fields: [currentVersionId], references: [id])
+
+  @@index([caseId])
+  @@index([title])
+  @@map("documents")
+}
+
+model DocumentVersion {
+  id          String    @id @default(cuid())
+  storageKey  String    // S3/MinIO storage key
+  filename    String
+  mime        String
+  size        Int
+  checksum    String
+  ocrText     String?   @db.Text
+  createdAt   DateTime  @default(now())
+
+  // Relations
+  document          Document    @relation(fields: [documentId], references: [id])
+  documentId        String
+  currentForDocument Document[]  @relation("CurrentVersion")
+
+  @@index([documentId])
+  @@map("document_versions")
+}
+
+model Note {
+  id         String     @id @default(cuid())
+  body       String     @db.Text
+  visibility Visibility
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  deletedAt  DateTime?
+
+  // Relations
+  case      Case    @relation(fields: [caseId], references: [id])
+  caseId    String
+  author    User    @relation(fields: [authorId], references: [id])
+  authorId  String
+
+  @@index([caseId])
+  @@index([authorId])
+  @@map("notes")
+}
+
+model MessageThread {
+  id         String     @id @default(cuid())
+  subject    String
+  visibility Visibility
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  deletedAt  DateTime?
+
+  // Relations
+  case        Case       @relation(fields: [caseId], references: [id])
+  caseId      String
+  createdBy   String     // User ID who created the thread
+  messages    Message[]
+
+  @@index([caseId])
+  @@map("message_threads")
+}
+
+model Message {
+  id         String    @id @default(cuid())
+  body       String    @db.Text
+  attachments Json?    // Array of attachment references
+  readBy     String[]  // Array of user IDs who have read the message
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  deletedAt  DateTime?
+
+  // Relations
+  thread     MessageThread @relation(fields: [threadId], references: [id])
+  threadId   String
+  author     User          @relation(fields: [authorId], references: [id])
+  authorId   String
+
+  @@index([threadId])
+  @@index([authorId])
+  @@map("messages")
+}
+
+model Task {
+  id          String       @id @default(cuid())
+  title       String
+  description String?      @db.Text
+  priority    TaskPriority @default(MEDIUM)
+  status      TaskStatus   @default(TODO)
+  dueAt       DateTime?
+  completedAt DateTime?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  deletedAt   DateTime?
+
+  // Relations
+  case        Case     @relation(fields: [caseId], references: [id])
+  caseId      String
+  assignee    User?    @relation("TaskAssignee", fields: [assigneeId], references: [id])
+  assigneeId  String?
+  creator     User     @relation("TaskCreator", fields: [creatorId], references: [id])
+  creatorId   String
+
+  @@index([caseId])
+  @@index([assigneeId])
+  @@index([status])
+  @@index([dueAt])
+  @@map("tasks")
+}
+
+model Event {
+  id          String    @id @default(cuid())
+  title       String
+  kind        EventType
+  description String?   @db.Text
+  location    String?
+  visibility  Visibility
+  startsAt    DateTime
+  endsAt      DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
+
+  // Relations
+  case        Case      @relation(fields: [caseId], references: [id])
+  caseId      String
+
+  @@index([caseId])
+  @@index([startsAt])
+  @@index([kind])
+  @@map("events")
+}
+
+model Invoice {
+  id        String        @id @default(cuid())
+  code      String
+  currency  String        @default("TRY")
+  total     Float
+  status    InvoiceStatus @default(DRAFT)
+  items     Json          // Array of invoice items
+  notes     String?
+  issuedAt  DateTime
+  dueAt     DateTime
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  deletedAt DateTime?
+
+  // Relations
+  firm       Firm         @relation(fields: [firmId], references: [id])
+  firmId     String
+  case       Case?        @relation(fields: [caseId], references: [id])
+  caseId     String?
+  client     Client       @relation(fields: [clientId], references: [id])
+  clientId   String
+  payments   Payment[]
+
+  @@index([firmId])
+  @@index([clientId])
+  @@index([caseId])
+  @@index([status])
+  @@index([dueAt])
+  @@map("invoices")
+}
+
+model Payment {
+  id        String        @id @default(cuid())
+  amount    Float
+  method    PaymentMethod
+  reference String?       // Payment reference number
+  notes     String?
+  paidAt    DateTime
+  createdAt DateTime      @default(now())
+
+  // Relations
+  invoice   Invoice       @relation(fields: [invoiceId], references: [id])
+  invoiceId String
+
+  @@index([invoiceId])
+  @@map("payments")
+}
+
+model AuditLog {
+  id        String    @id @default(cuid())
+  action    String
+  entity    String
+  entityId  String
+  details   Json?
+  ip        String?
+  ua        String?   // User agent
+  createdAt DateTime  @default(now())
+
+  // Relations
+  actor     User?     @relation("Actor", fields: [actorId], references: [id])
+  actorId   String?
+
+  @@index([entity, entityId])
+  @@index([actorId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+model Notification {
+  id        String             @id @default(cuid())
+  channel   NotificationChannel
+  template  String
+  payload   Json
+  sentAt    DateTime?
+  readAt    DateTime?
+  createdAt DateTime           @default(now())
+
+  // Relations
+  user      User               @relation(fields: [userId], references: [id])
+  userId    String
+
+  @@index([userId])
+  @@index([sentAt])
+  @@map("notifications")
+}
+
+// KVKK/GDPR consent and data management
+model ConsentRecord {
+  id          String    @id @default(cuid())
+  userId      String
+  purpose     String
+  granted     Boolean
+  ipAddress   String?
+  userAgent   String?
+  grantedAt   DateTime  @default(now())
+  revokedAt   DateTime?
+  
+  @@index([userId])
+  @@map("consent_records")
+}
+
+// Session management for device tracking
+model Session {
+  id           String    @id @default(cuid())
+  userId       String
+  expires      DateTime
+  sessionToken String    @unique
+  accessToken  String?   @unique
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  
+  @@index([userId])
+  @@map("sessions")
+}
+
+// Store verification tokens for password reset, email verification
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  createdAt  DateTime @default(now())
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}

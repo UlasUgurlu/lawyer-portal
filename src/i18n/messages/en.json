@@ -1,0 +1,409 @@
+{
+  "common": {
+    "title": "Lawyer Portal",
+    "nav": {
+      "home": "Home",
+      "services": "Services",
+      "team": "Our Team",
+      "blog": "Blog",
+      "contact": "Contact",
+      "faq": "FAQ",
+      "login": "Login",
+      "register": "Register",
+      "dashboard": "Dashboard",
+      "myCases": "My Cases",
+      "messages": "Messages",
+      "payments": "Payments",
+      "profile": "Profile",
+      "settings": "Settings",
+      "logout": "Logout"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot your password?",
+      "submit": "Login",
+      "register": "Don't have an account? Register",
+      "loginError": "An error occurred during login."
+    },
+    "register": {
+      "title": "Register",
+      "name": "Full Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "privacyPolicy": "I have read and agree to the privacy policy.",
+      "submit": "Register",
+      "login": "Already have an account? Login",
+      "registerError": "An error occurred during registration."
+    },
+    "2fa": {
+      "title": "Two-Factor Authentication",
+      "description": "Please enter the code from your authentication app",
+      "code": "Verification Code",
+      "submit": "Verify"
+    },
+    "forgotPassword": {
+      "title": "Reset Password",
+      "email": "Email",
+      "submit": "Send Reset Link",
+      "sentMessage": "Password reset link has been sent to your email.",
+      "backToLogin": "Back to login"
+    },
+    "resetPassword": {
+      "title": "Set New Password",
+      "password": "New Password",
+      "confirmPassword": "Confirm Password",
+      "submit": "Change Password",
+      "success": "Your password has been successfully changed."
+    },
+    "verification": {
+      "title": "Email Verification",
+      "success": "Your email has been verified.",
+      "error": "Verification failed.",
+      "expired": "Verification link is invalid or has expired."
+    }
+  },
+  "dashboard": {
+    "greeting": "Hello, {name}",
+    "summary": {
+      "title": "Summary",
+      "activeCases": "Active Cases",
+      "pendingHearings": "Upcoming Hearings",
+      "unreadMessages": "Unread Messages",
+      "pendingInvoices": "Pending Invoices"
+    },
+    "recentDocuments": {
+      "title": "Recent Documents",
+      "empty": "No documents yet",
+      "viewAll": "View All"
+    },
+    "upcomingHearings": {
+      "title": "Upcoming Hearings",
+      "empty": "No upcoming hearings",
+      "viewAll": "View All"
+    },
+    "recentMessages": {
+      "title": "Recent Messages",
+      "empty": "No messages yet",
+      "viewAll": "View All"
+    }
+  },
+  "cases": {
+    "title": "My Cases",
+    "search": "Search Cases",
+    "filter": {
+      "all": "All",
+      "active": "Active",
+      "pending": "Pending",
+      "closed": "Closed",
+      "archived": "Archived"
+    },
+    "type": {
+      "all": "All Types",
+      "DAVA": "Lawsuit",
+      "ICRA": "Execution",
+      "DANISMANLIK": "Consultation",
+      "DIGER": "Other"
+    },
+    "table": {
+      "title": "Case Title",
+      "type": "Type",
+      "status": "Status",
+      "court": "Court",
+      "registryNo": "Registry No",
+      "openedAt": "Opened At",
+      "actions": "Actions"
+    },
+    "detail": {
+      "title": "Case Details",
+      "info": "Case Information",
+      "documents": "Documents",
+      "messages": "Messages",
+      "tasks": "Tasks",
+      "calendar": "Calendar",
+      "payments": "Payments",
+      "assignedLawyers": "Assigned Lawyers",
+      "parties": "Parties",
+      "timeline": "Timeline"
+    },
+    "document": {
+      "title": "Documents",
+      "search": "Search Documents",
+      "upload": "Upload Document",
+      "preview": "Preview",
+      "download": "Download",
+      "delete": "Delete",
+      "version": "Version",
+      "lastUpdated": "Last Updated",
+      "visibility": {
+        "INTERNAL": "Lawyers Only",
+        "CLIENT": "Client Can View"
+      },
+      "tags": "Tags",
+      "addTag": "Add Tag"
+    }
+  },
+  "messages": {
+    "title": "Messages",
+    "newMessage": "New Message",
+    "search": "Search Messages",
+    "noMessages": "No messages yet",
+    "thread": {
+      "reply": "Reply",
+      "attachment": "Add Attachment",
+      "send": "Send"
+    }
+  },
+  "payments": {
+    "title": "Payments",
+    "invoices": "Invoices",
+    "transactions": "Transactions",
+    "table": {
+      "invoiceNumber": "Invoice #",
+      "amount": "Amount",
+      "status": "Status",
+      "issuedAt": "Issued At",
+      "dueAt": "Due At",
+      "actions": "Actions"
+    },
+    "status": {
+      "DRAFT": "Draft",
+      "SENT": "Sent",
+      "PAID": "Paid",
+      "OVERDUE": "Overdue",
+      "CANCELLED": "Cancelled"
+    },
+    "invoice": {
+      "download": "Download PDF",
+      "pay": "Make Payment"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "personalInfo": {
+      "title": "Personal Information",
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "save": "Save Changes"
+    },
+    "security": {
+      "title": "Security",
+      "changePassword": "Change Password",
+      "2fa": "Two-Factor Authentication",
+      "2faEnabled": "Enabled",
+      "2faDisabled": "Disabled",
+      "devices": "Device Management",
+      "currentDevice": "Current Device",
+      "otherDevices": "Other Devices",
+      "logoutDevice": "Log Out Device",
+      "logoutAll": "Log Out All Devices"
+    },
+    "preferences": {
+      "title": "Preferences",
+      "language": "Language",
+      "timezone": "Timezone",
+      "notifications": {
+        "title": "Notification Preferences",
+        "email": "Email Notifications",
+        "sms": "SMS Notifications",
+        "app": "App Notifications",
+        "options": {
+          "all": "All Notifications",
+          "important": "Important Notifications Only",
+          "none": "None"
+        }
+      }
+    },
+    "consent": {
+      "title": "Privacy Consents",
+      "marketing": "I agree to receive marketing communications",
+      "dataProcessing": "I agree to the processing of my data",
+      "thirdParty": "I agree to data sharing with third parties",
+      "update": "Update Consents"
+    },
+    "deleteAccount": {
+      "title": "Delete Account",
+      "warning": "This action cannot be undone and all your data will be permanently deleted.",
+      "button": "Delete My Account"
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Admin Dashboard",
+      "stats": {
+        "users": "Users",
+        "cases": "Cases",
+        "clients": "Clients",
+        "invoices": "Invoices"
+      }
+    },
+    "users": {
+      "title": "Users",
+      "add": "Add User",
+      "invite": "Invite User",
+      "table": {
+        "name": "Full Name",
+        "email": "Email",
+        "role": "Role",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "role": {
+        "SUPER_ADMIN": "Super Admin",
+        "FIRM_ADMIN": "Firm Admin",
+        "LAWYER": "Lawyer",
+        "PARALEGAL": "Paralegal",
+        "CLIENT": "Client"
+      }
+    },
+    "clients": {
+      "title": "Clients",
+      "add": "Add Client",
+      "invite": "Invite Client",
+      "table": {
+        "name": "Full Name",
+        "email": "Email",
+        "phone": "Phone",
+        "activeCases": "Active Cases",
+        "actions": "Actions"
+      }
+    },
+    "cases": {
+      "title": "Cases",
+      "add": "New Case",
+      "table": {
+        "title": "Title",
+        "client": "Client",
+        "type": "Type",
+        "status": "Status",
+        "assignedTo": "Assigned Lawyer",
+        "openedAt": "Opened At",
+        "actions": "Actions"
+      }
+    },
+    "settings": {
+      "title": "Settings",
+      "firm": {
+        "title": "Firm Information",
+        "name": "Firm Name",
+        "vatNo": "VAT Number",
+        "address": "Address",
+        "logo": "Logo",
+        "save": "Save Changes"
+      },
+      "templates": {
+        "title": "Templates",
+        "email": "Email Templates",
+        "sms": "SMS Templates",
+        "document": "Document Templates",
+        "save": "Save Template"
+      },
+      "integrations": {
+        "title": "Integrations",
+        "smtp": "Email (SMTP)",
+        "sms": "SMS Provider",
+        "storage": "File Storage",
+        "payment": "Payment Provider",
+        "save": "Save Settings"
+      }
+    },
+    "reports": {
+      "title": "Reports",
+      "casesByStatus": "Cases by Status",
+      "casesByType": "Cases by Type",
+      "invoiceStats": "Invoice Statistics",
+      "userActivity": "User Activity",
+      "export": {
+        "title": "Export",
+        "csv": "Download CSV",
+        "pdf": "Download PDF"
+      }
+    },
+    "auditLog": {
+      "title": "Audit Logs",
+      "table": {
+        "action": "Action",
+        "user": "User",
+        "entity": "Entity",
+        "timestamp": "Timestamp",
+        "ip": "IP Address"
+      }
+    }
+  },
+  "components": {
+    "fileUpload": {
+      "dropzone": "Drag and drop files here or click to select",
+      "maxSize": "Maximum file size: {size}",
+      "allowedTypes": "Allowed file types: {types}",
+      "scanning": "Scanning file...",
+      "uploadError": "An error occurred during upload",
+      "success": "File uploaded successfully"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page",
+      "of": "of"
+    },
+    "table": {
+      "emptyState": "No data found",
+      "loading": "Loading...",
+      "search": "Search",
+      "rowsPerPage": "Rows per page"
+    },
+    "calendar": {
+      "today": "Today",
+      "month": "Month",
+      "week": "Week",
+      "day": "Day",
+      "addEvent": "Add Event"
+    },
+    "notification": {
+      "markAllRead": "Mark All as Read",
+      "noNotifications": "No notifications",
+      "viewAll": "View All"
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "Page Not Found",
+      "message": "The page you are looking for does not exist or may have been removed.",
+      "backHome": "Back to Home"
+    },
+    "unauthorized": {
+      "title": "Unauthorized Access",
+      "message": "You do not have permission to view this page.",
+      "login": "Login"
+    },
+    "serverError": {
+      "title": "Server Error",
+      "message": "An unexpected error occurred. Please try again later.",
+      "retry": "Retry"
+    },
+    "validation": {
+      "required": "This field is required",
+      "email": "Please enter a valid email address",
+      "minLength": "Please enter at least {min} characters",
+      "maxLength": "Please enter no more than {max} characters",
+      "passwordMatch": "Passwords do not match",
+      "invalidDate": "Please enter a valid date"
+    }
+  },
+  "dates": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "tomorrow": "Tomorrow",
+    "daysAgo": "{days} days ago",
+    "inDays": "in {days} days",
+    "monthsAgo": "{months} months ago",
+    "inMonths": "in {months} months",
+    "yearsAgo": "{years} years ago",
+    "inYears": "in {years} years"
+  }
+}
