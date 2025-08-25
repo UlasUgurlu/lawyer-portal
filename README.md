@@ -174,27 +174,60 @@ npm start
 
 ## 🚀 Deployment
 
-### Docker ile Deployment
+### 🌟 Hızlı Başlangıç (5 Dakikada!)
+
+**En kolay yöntem - Vercel:**
+1. [Vercel.com](https://vercel.com)'a kaydolun
+2. GitHub repository'nizi bağlayın
+3. Environment variables ekleyin
+4. Deploy butonuna tıklayın!
+
+**Detaylı rehber:** [DEPLOYMENT-GUIDE.md](./DEPLOYMENT-GUIDE.md) dosyasına bakın.
+
+### 📋 Deployment Seçenekleri
+
+| Platform | Maliyet | Kurulum | SSL | Performans |
+|----------|---------|---------|-----|------------|
+| **Vercel** | Ücretsiz/Pro | ⭐⭐⭐⭐⭐ | Otomatik | ⭐⭐⭐⭐⭐ |
+| **Netlify** | Ücretsiz/Pro | ⭐⭐⭐⭐⭐ | Otomatik | ⭐⭐⭐⭐ |
+| **Docker (VPS)** | $5-20/ay | ⭐⭐⭐ | Manuel | ⭐⭐⭐⭐ |
+| **AWS/GCP** | $10-50/ay | ⭐⭐ | Manuel | ⭐⭐⭐⭐⭐ |
+
+### 🐳 Docker ile Deployment
 
 ```bash
-# Production image oluştur
-docker build -t lawyer-portal .
+# 1. Environment ayarları
+cp .env.production.example .env.production
+nano .env.production
 
-# Container çalıştır
-docker run -p 3000:3000 --env-file .env.production lawyer-portal
+# 2. SSL sertifikası (opsiyonel)
+./scripts/setup-ssl.sh
+
+# 3. Production deployment
+./scripts/deploy.sh
 ```
 
-### Kubernetes
+### ☁️ Cloud Deployment
 
-Kubernetes manifest dosyaları `k8s/` klasöründe bulunmaktadır.
+**Vercel/Netlify için:**
+- Repository'yi platform'a bağlayın
+- Environment variables ekleyin
+- Otomatik deploy
+
+**Detaylı adımlar:** [DEPLOYMENT-GUIDE.md](./DEPLOYMENT-GUIDE.md)
+
+### 🔧 Production Hazırlık
 
 ```bash
-kubectl apply -f k8s/
+# Dependencies yükle
+npm install
+
+# Build test et
+npm run build
+
+# Environment dosyası oluştur
+cp .env.example .env.production
 ```
-
-### Vercel/Netlify
-
-Next.js uygulaması olduğu için Vercel veya Netlify üzerinde kolayca deploy edilebilir.
 
 ## 📚 API Dokümantasyonu
 
