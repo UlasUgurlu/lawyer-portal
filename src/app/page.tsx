@@ -1,8 +1,11 @@
 'use client'
 
 import { useEffect } from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
+
+import { Button } from '@/components/ui/button'
 
 export default function Home() {
   const router = useRouter()
@@ -13,7 +16,7 @@ export default function Home() {
 
     if (session) {
       // User is authenticated, redirect based on role
-      const role = (session.user as any).role
+      const role = session.user.role
       switch (role) {
         case 'SUPER_ADMIN':
           router.push('/admin')
@@ -31,9 +34,6 @@ export default function Home() {
         default:
           router.push('/dashboard')
       }
-    } else {
-      // User is not authenticated, redirect to login
-      router.push('/auth/login')
     }
   }, [session, status, router])
 
@@ -47,6 +47,21 @@ export default function Home() {
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
           <p className="mt-4 text-gray-600">Yükleniyor...</p>
         </div>
+      </div>
+    )
+  }
+
+  if (!session) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 text-center p-4">
+        <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-6">
+          <span className="text-white text-2xl font-bold">AP</span>
+        </div>
+        <h1 className="text-3xl font-bold mb-4">Avukat Portalına Hoşgeldiniz</h1>
+        <p className="text-gray-600 mb-8">Yönetim paneline erişmek için lütfen giriş yapın.</p>
+        <Link href="/auth/login">
+          <Button>Giriş Yap</Button>
+        </Link>
       </div>
     )
   }
